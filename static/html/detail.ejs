@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%=title%>
+  </title>
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 2px;
+    }
+    
+    .grid-item {
+      border: 1px solid black;
+      padding: 5px;
+    }
+    
+    .grid-row-wrapper {
+      display: contents;
+    }
+    
+    .grid-row-wrapper>.grid-item {
+      background: skyblue;
+    }
+    
+    .center {
+      padding: 70px 0;
+      text-align: center;
+    }
+    
+    .big {
+      font-size: 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="center">
+    <a href="/" class="big center">Trở về trang chủ</a>
+    <div class="grid-container">
+      <% for(let i = 0; i < data.length; i++) {%>
+        <div class="grid-item">
+          <img src="<%= data[i].url%>">
+          <br>
+          <p class="big">
+            <%= data[i].name%>
+          </p>
+          <br>
+        </div>
+        <% }%>
+
+    </div>
+  </div>
+
+
+</body>
+
+</html>
